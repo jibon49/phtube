@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="./js/tailwind.config.js"></script>
+    <style>
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="font-inter max-w-full mx-auto md:max-w-screen-2xl px-5 md:px-16 lg:px-32 md:py-5 lg:py-12">
+    <header class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 mb-8 border-b-2 pb-8">
+        <!-- navbar section -->
+        <div><img src="./logo.png" alt=""></div>
+        <div><button class="bg-[#25252521] px-5 py-2 rounded-md">Sort by view</button></div>
+        <div><button class="bg-[#FF1F3D] px-5 py-2 rounded-md text-white">Blog</button></div>
+    </header>
+    <main>
+        <!-- button section -->
+        <section>
+            <div id="button-container" class="flex flex-col md:flex-row items-center justify-center gap-4  md:gap-6">
+                <!-- <button class="bg-[#FF1F3D] px-5 py-2 rounded-md text-white">Blog</button> -->
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
