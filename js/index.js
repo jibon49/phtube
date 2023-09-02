@@ -114,29 +114,15 @@ const handleCategory =async (categoryId) =>{
 
 
 sortButton.addEventListener('click', () => {
-  // Get all the cards
   const cards = document.querySelectorAll('.card');
-
-  // Create an array to store card elements with their view counts
   const cardArray = [];
-
-  // Iterate through the cards
   cards.forEach(card => {
-    // Extract the view count from each card (assuming there's a 'data-views' attribute)
     const viewCount = parseFloat(card.getAttribute('data-views'));
-
-    // Push the card and its view count into the array
     cardArray.push({ card, viewCount });
   });
-
-  // Sort the array of cards based on view counts in ascending order
   cardArray.sort((a, b) => a.viewCount - b.viewCount);
-
-  // Clear the card container
   const cardContainer = document.getElementById('card-container');
   cardContainer.innerHTML = '';
-
-  // Append the sorted cards back to the container
   cardArray.forEach(cardObj => {
     cardContainer.appendChild(cardObj.card);
   });
