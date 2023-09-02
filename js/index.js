@@ -1,9 +1,15 @@
+const sortButton =document.getElementById('sort-button');
+const cardsContainer = document.getElementById('card-container');
+
+
 const buttons = async () => {
   const res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
   const categories = await res.json();
   buttonsManager(categories);
 }
 
+
+// button
 const buttonsManager = (categories) => {
   const buttonContainer = document.getElementById('button-container');
   categories.data.forEach(button => {
@@ -21,21 +27,24 @@ const cardsHandler = async () => {
 }
 
 const showAllCard = (cards) => {
-  const cardsContainer = document.getElementById('card-container')
   
+  // no content
   if(cards.data.length === 0){
     const noContentContainer = document.getElementById('no-content')
     const noContent = document.createElement('div')
-    noContent.classList = "text-center pt-52"
+    noContent.classList = "text-center pt-10 md:pt-20 lg:pt-52"
     noContent.innerHTML = `
     <img src="./Icon.png" alt="" class="mx-auto">
     <p class="font-bold text-3xl">Oops!! Sorry, There is no content here</p>
   `
   noContentContainer.appendChild(noContent);
   }
+
+  // all content
   else{
     cards.data.forEach(card1 => {
       const card = document.createElement('div')
+      card.setAttribute('data-views', card1.others?.views);
       const time = timeConverter(card1.others ?.posted_date);
       const timeHandler = ((time.hour !==0 && time.min !== 0) ? `<div class="absolute right-2 bottom-2 text-white  text-xs">
       <p class="bg-[#171717] px-1">${time.hour}hrs ${time.min}min ago</p>
@@ -64,12 +73,12 @@ const showAllCard = (cards) => {
                       <div class="card-body">
                           <div class="flex gap-3">
                               <div class="">
-                                  <img class="inline-block rounded-full h-10 w-10 object-cover" src="${card1?.authors[0].profile_picture}" alt="">
+                                  <img class="inline-block rounded-full h-10 w-10 md:h-10 md:w-10 object-cover" src="${card1?.authors[0].profile_picture}" alt="">
                               </div>
                             <div>
                               <h2 class="card-title">${card1.title}</h2>
                             <p>${card1.authors[0]?.profile_name} ${verifyHandler}</p>
-                            <p>${card1.others?.views} views</p>
+                            <p class="total-views"><span>${card1.others?.views}</span> views</p>
                             </div>
                           </div>
                       </div>
@@ -90,6 +99,8 @@ const timeConverter = (seconds) =>{
 }
 
 const handleCategory =async (categoryId) =>{
+
+  buttons.classList = "bg-[red] px-5 py-2 rounded-md"
   const noContentContainer = document.getElementById('no-content');
   noContentContainer.innerHTML='';
   const cardsContainer = document.getElementById('card-container');
@@ -100,6 +111,45 @@ const handleCategory =async (categoryId) =>{
   showAllCard(showCategoriesCard);
 
 }
+
+
+sortButton.addEventListener('click', () => {
+  // Get all the cards
+  const cards = document.querySelectorAll('.card');
+
+  // Create an array to store card elements with their view counts
+  const cardArray = [];
+
+  // Iterate through the cards
+  cards.forEach(card => {
+    // Extract the view count from each card (assuming there's a 'data-views' attribute)
+    const viewCount = parseFloat(card.getAttribute('data-views'));
+
+    // Push the card and its view count into the array
+    cardArray.push({ card, viewCount });
+  });
+
+  // Sort the array of cards based on view counts in ascending order
+  cardArray.sort((a, b) => a.viewCount - b.viewCount);
+
+  // Clear the card container
+  const cardContainer = document.getElementById('card-container');
+  cardContainer.innerHTML = '';
+
+  // Append the sorted cards back to the container
+  cardArray.forEach(cardObj => {
+    cardContainer.appendChild(cardObj.card);
+  });
+});
+
+
+
+ 
+  
+
+
+
+
 
 
 cardsHandler();

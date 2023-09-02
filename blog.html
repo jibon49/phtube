@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <script src="./js/tailwind.config.js"></script>
+        <style>
+            .font-inter {
+                font-family: 'Inter', sans-serif;
+            }
+        </style>
+    </head>
+
+
+<body class="font-inter max-w-full mx-auto md:max-w-screen-2xl px-5 md:px-16 lg:px-32 md:py-5 lg:py-12">
+    <a class="flex justify-center mx-auto" href="./index.html"><button class="bg-[#FF1F3D] px-5 py-2 rounded-md text-white">To Site</button></a>
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-6">Blog Questions</h1>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Scope of Var,let and const</h2>
+            <p class="text-gray-600">
+                In JavaScript, there are three variable declarations:
+                <span class="text-blue-500">var</span>,
+                <span class="text-blue-500">let</span>,
+                and
+                <span class="text-blue-500">const</span>.
+            </p>
+
+            <!-- var -->
+            <div class="">
+                <h1 class="font-bold text-xl">Var</h1>
+            <ul class="list-inside list-disc">
+                <li>When var is declared within a function it can be accessible within only function and when declared in global scope it can be accessed anywhere </li>
+                <li>When declared with var its value can be reassign</li>
+                <li>Variable declared with Var can be hoisted</li>
+            </ul>
+            </div>
+
+            <!-- let -->
+            <div class="">
+                <h1 class="font-bold text-xl">let</h1>
+            <ul class="list-inside list-disc">
+                <li>Variable declared with let are not accessible outside of the block </li>
+                <li>When declared with let value can be reassign and the value can be change</li>
+                <li>let does not hoist like var and its more compatible than var </li>
+            </ul>
+            </div>
+            <!-- Const -->
+            <div class="">
+                <h1 class="font-bold text-xl">const</h1>
+            <ul class="list-inside list-disc">
+                <li>Variable declared with const are not accessible outside of the block </li>
+                <li>When declared with const value cannot be reassigned or changed</li>
+                <li>Const variable is always fixed and it does not hoist </li>
+            </ul>
+            </div>
+          
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Use Cases of null and undefined</h2>
+            <p class="text-gray-600">
+                <span class="text-blue-500">null</span> represents the intentional absence of any object value, while
+                <span class="text-blue-500">undefined</span> represents a variable that has been declared but has not been assigned a value.
+            </p>
+            <!-- null -->
+            <div class="">
+                <h1 class="font-bold text-xl">null</h1>
+                <p>In JavaScript, null is a special value that represents an empty or unknown value and null is treated as an object. We can check this using the typeof operator.</p>
+
+            </div>
+
+            <!-- undefined -->
+            <div class="">
+                <h1 class="font-bold text-xl">undefined</h1>
+                <p>If a variable is declared but the value is not assigned, then the value of that variable will be undefined.Functions that do not explicitly return a value return undefined</p>
+
+            </div>
+            
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">REST API</h2>
+            <p class="text-gray-600">
+                A <span class="text-blue-500">REST API</span> (Representational State Transfer Application Programming Interface) is a set of architectural principles and constraints for designing and interacting with web services.
+            </p>
+            <p>A REST API is a way for software applications to communicate over the internet. It follows a set of rules that make interactions between different systems easy to understand and use. REST APIs are used to request and exchange data between a client (like a web browser) and a server (where data is stored). Using REST API we can get specified data from a database though using mobile application</p>
+            
+        </div>
+    </div>
+</body>
+</html>
